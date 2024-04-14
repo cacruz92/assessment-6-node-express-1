@@ -1,0 +1,12 @@
+# Broken App Issues
+- the *app.listen* function is incomplete. It won't log what port the app is on for the user to see.
+- The variale designation for axios and app was var and let instead of const.
+- There seems to be a space for throwing an error but there is no middleware or next route for the code to move onto. So I added an express error file and some middleware for error handling.
+- Also exported the app to server.js to allow for testing of the file.
+- added app.use(express.json()) to ensure the results are automatically parsed and made available in *req.body*
+-  In the try and catch method, *err* needed to be passed into the catch as a parameter otherwise it would not be defined.
+-  Async was missing from the function to allow it to await the results
+-  a promise.all needed to be added to allow all the promises to complete when there are multiple users being looked up.
+-  Added the *await axios.get(`https://api.github.com/users/${d}`);* to a variable and then returned that variable, allowing the promises to be resolved prior to us utilizing the data. 
+-  made results provide the data for response.data
+-  changed the variable names for *results* to *devData* to help distinguish it from res and req from the function parameters and *out* to *devList* to help define what the output was.
